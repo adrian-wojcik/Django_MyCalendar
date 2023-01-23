@@ -1,0 +1,24 @@
+{% extends 'examples/base.html' %}
+
+{% block main_content %}
+<h1> Lista wszystkich notatek </h1>
+
+{% if object_list %}
+<table>
+    <thead>
+    <tr><th>Tytuł</th><th>Data utworzenia</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+    {% for i in object_list %}
+    <tr>
+        <td> <a href="{% url 'notes_cbv_note' i.id %}">{{ i.title }} </a></td>
+        <td> {{ i.creation_datetime }}</td>
+        <td> {{i.get_status_display }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+{% else %}
+    <p> Brak notatek</p>
+{% endif %}
+</table>
+{% endblock %}

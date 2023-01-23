@@ -1,0 +1,11 @@
+{% extends 'examples/base.html' %}
+
+{% block main_content %}
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    <table>
+        {{ form }}
+        <tr><td>{% if cancel %} <a href="{{ cancel }}">Anuluj </a>{% endif %}</td><td><input type="submit" value="Wyślij"></td></tr>
+    </table>
+</form>
+{% endblock %}

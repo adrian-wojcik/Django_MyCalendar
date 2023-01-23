@@ -1,0 +1,10 @@
+{% extends 'examples/base.html' %}
+
+{% block main_content %}
+{% for i in object_list %}
+    {{ i }}
+    <br>
+{% endfor %}
+<hr>
+{{ personaldata_list }}
+{% endblock %}

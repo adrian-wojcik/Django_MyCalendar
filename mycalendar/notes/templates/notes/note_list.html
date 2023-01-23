@@ -1,0 +1,30 @@
+{% extends 'examples/base.html' %}
+
+{% block title %} {{ page_title }} {% endblock %}
+
+{% block main_content %}
+<h1> {% comment %}Lista wszystkich notatek {% endcomment %} {{ page_title }}</h1>
+<form action="" method="get">
+    <label for="search">Wyszukaj</label><input id="search" type="text" name="search">
+    <input type="submit" value="Szukaj">
+</form>
+{% if notes %}
+<table>
+    <thead>
+    <tr><th>Tytuł</th><th>Data utworzenia</th><th>Status</th><th></th></tr>
+    </thead>
+    <tbody>
+    {% for i in notes %}
+    <tr>
+        <td>{{ i.title }}</td>
+        <td> {{ i.creation_datetime }}</td>
+        <td> {{i.get_status_display }}</td>
+        <td><a href="{% url 'notes_detail' i.id %}"> Szczegóły</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+{% else %}
+    <p> Brak notatek</p>
+{% endif %}
+</table>
+{% endblock %}

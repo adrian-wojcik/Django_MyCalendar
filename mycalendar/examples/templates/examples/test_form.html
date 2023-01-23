@@ -1,0 +1,16 @@
+{% extends 'examples/base.html' %}
+
+{% block title %} Formularz testowy {% endblock %}
+
+{% block main_content %}
+<form action="" method="get">
+    <label for="name">Imię</label><input id="name" type="text" name="name"><br>
+    <label for="options"> Opcje </label>
+    <select id="options" name="options">
+        <option value="1"> opcja 1</option>
+        <option value="2"> opcja 2</option>
+    </select><br>
+    <input type="submit" value="Wyślij">
+</form>
+
+{% endblock %}

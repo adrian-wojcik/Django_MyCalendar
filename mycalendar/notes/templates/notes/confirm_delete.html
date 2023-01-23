@@ -1,0 +1,10 @@
+{% extends 'examples/base.html' %}
+
+{% block main_content %}
+<strong> UWAGA !!! Chcesz skasowac obiekt: {{ object }} . Czy na pewno ? </strong>
+  <form action="" method="POST">
+      {% csrf_token %}
+      {% if cancel %} <a href="{{ cancel }}"> Anuluj </a> {% endif %} <input type="submit" value="Tak, usuń !">
+  </form>
+
+{% endblock %}

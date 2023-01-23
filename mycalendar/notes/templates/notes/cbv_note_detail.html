@@ -1,0 +1,27 @@
+{% extends 'examples/base.html' %}
+
+{% block title %} Szczegóły notatki {% endblock %}
+
+{% block main_content %}
+<h1> {{ note.title }}</h1>
+<p><i> utworzono: {{ note.creation_datetime }}</i></p>
+<p>
+    {{ note.note }}
+</p>
+<p>
+    <a href="{% url 'notes_cbv_update_note' note.pk %}"> Edytuj </a>
+    <a href="{% url 'notes_cbv_delete_note' note.pk %}"> Usuń </a><br><br>
+    <a href="{% url 'notes_cbv_create_list' note.pk %}"> Dodaj liste </a>
+</p>
+{% for list in note.todolist_set.all %}
+<h2> {{ list.title }}</h2>
+<a href="{% url 'notes_cbv_create_list_item' list.id %}">Dodaj item</a>
+{% if list.todolistitem_set %}
+<ul>
+    {% for item in list.todolistitem_set.all %}
+    <li>{{ item.note }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+{% endblock %}

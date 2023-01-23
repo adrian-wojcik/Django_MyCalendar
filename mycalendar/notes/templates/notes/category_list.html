@@ -1,0 +1,12 @@
+{% extends 'examples/base.html' %}
+
+{% block title %} Lista kategorii {% endblock %}
+
+{% block main_content %}
+<h1> Lista kategorii</h1>
+<ul>
+    {% for i in categories %}
+    <li> <a href="{% url 'notes_category_detail' i.id %}">{{ i.name }} </a>({{ i.note_set.count }})</li>
+    {% endfor %}
+</ul>
+{% endblock %}

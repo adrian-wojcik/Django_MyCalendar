@@ -1,0 +1,14 @@
+{% extends 'examples/base.html' %}
+
+{% block title %} Szczegóły notatki {% endblock %}
+
+{% block main_content %}
+<h1> {{ note.title }}</h1>
+<p><i> utworzono: {{ note.creation_datetime }}</i></p>
+<p>
+    {{ note.note }}
+</p>
+<p>
+    <a href="{% url 'notes_note_update' note.id %}"> Edytuj</a>
+</p>
+{% endblock %}

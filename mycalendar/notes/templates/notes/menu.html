@@ -1,0 +1,19 @@
+Notes menu:
+<ul>
+    <li> <a href="{% url 'notes_note_create' %}">Nowa notatka</a></li>
+    <li> <a href="{% url 'notes_list' %}">Lista notatek</a></li>
+    <li> <a href="{% url 'notes_unpublished_list' %}">Nieopublikowane</a></li>
+    <li> <a href="{% url 'notes_published_list' %}">Opublikowane</a></li>
+    <li> <a href="{% url 'notes_category_create' %}"> Dodaj kategorię</a></li>
+    <li> <a href="{% url 'notes_category_list' %}">Kategorie</a></li>
+</ul>
+
+CBV menu:
+<ul>
+    {% if perms.notes.view_note %}
+    <li><a href="{% url 'notes_cbv_notes' %}"> Lista notatek</a> </li>
+    {% endif %}
+    <li><a href="{% url 'notes_cbv_create_note' %}">Dodaj notatkę</a></li>
+    <li><a href="{% url 'notes_cbv_categories' %}"> Lista kategorii</a> </li>
+    <li><a href="{% url 'notes_cbv_create_category' %}">Dodaj kategorię</a></li>
+</ul>

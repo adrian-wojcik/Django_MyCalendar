@@ -1,0 +1,30 @@
+{% extends 'examples/base.html' %}
+
+{% block title %} Lista danych osobowych {% endblock %}
+
+{% block main_content %}
+<h1> Lista danych osobowych </h1>
+
+{% if personal_data %}
+<table>
+    <thead>
+    <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Data urodzenia</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in personal_data %}
+    <tr>
+        <td>{{ i.first_name }}</td>
+        <td>{{ i.last_name }}</td>
+        <td>{{ i.date_of_birth|date:"Y-m-d" }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<strong> Brak danych do wyświetlenia </strong>
+{% endif %}
+{% endblock %}
